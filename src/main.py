@@ -3,9 +3,17 @@
 # -*- encoding: UTF-8 -*
 
 
+import logging
+
+
+# Configure the logger
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+
 def main():
     # bootstrap
-    pass
+    logging.debug('bootstrapping ...')
 
 
 if __name__ == '__main__':
