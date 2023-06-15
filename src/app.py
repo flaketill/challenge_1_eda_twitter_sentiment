@@ -34,3 +34,25 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 # https://twitter.com/TwitterMexico
 username = os.getenv("USERNAME")
 no_of_tweets = 100
+
+def run():
+
+	logging.debug('Run a simple text - using Tweepy')
+
+	try:
+
+		##Step 3 - Retrieve Tweets: The number of tweets we want to retrieved from the user
+	    tweets = api.user_timeline(screen_name=username, count=no_of_tweets)
+
+	    # Get attributes from the tweet
+	    # created_at, favorite_count, source and text
+	    attributes_tweet = [[tweet.created_at, tweet.favorite_count, tweet.source, tweet.text] for tweet in tweets]
+
+	    columns = ["Date Created", "Number of Likes", "Source of Tweet", "Tweet"]
+
+	    #Creation of Dataframe with attributes from the tweet
+	    tweets_df = pd.DataFrame(attributes_tweet, columns=columns)
+
+	except BaseException as e:
+		logging.debug(f'Invalid or expired token: {e}')
+		time.sleep(2)
