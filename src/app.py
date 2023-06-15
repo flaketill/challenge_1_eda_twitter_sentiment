@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 # -*- encoding: UTF-8 -*
 
-
 import os
 import pandas as pd
 import tweepy
@@ -10,22 +9,28 @@ from textblob import TextBlob
 import logging, time
 from dotenv import load_dotenv # Persistent Virtualenv Environment Variables with python-dotenv
 
+load_dotenv()  # take environment variables from .env file
+
+# Configure the logger
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Step 1 - Authenticate
-consumer_key= 'CONSUMER_KEY_HERE'
-consumer_secret= 'CONSUMER_SECRET_HERE'
+consumer_key = os.getenv("API_KEY")
+consumer_secret = os.getenv("API_SECRET_KEY")
 
-access_token='ACCESS_TOKEN_HERE'
-access_token_secret='ACCESS_TOKEN_SECRET_HERE'
+access_token = os.getenv("ACCESS_TOKEN") 
+access_token_secret = os.getenv("ACCESS_TOKEN_SECRET")
 
 auth = tweepy.OAuth1UserHandler(
     consumer_key, consumer_secret,
     access_token, access_token_secret
 )
 
-
 # Step 2 - Instantiate the tweepy API
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
-#Step 3 - Retrieve Tweets
-public_tweets = api.search('Trump')
+# Step 3 - Username
+
+# https://twitter.com/TwitterMexico
+username = os.getenv("USERNAME")
+no_of_tweets = 100
