@@ -1,4 +1,5 @@
-# twitter_sentiment_challenge
+# Twitter Sentiment Challenge 1
+
 Twitter Sentiment Analysis Challenge for Learn Python for Data Science #2 by @Sirajology on Youtube
 
 ##Overview
@@ -9,6 +10,8 @@ This is the code for the Twitter Sentiment Analyzer challenge for 'Learn Python 
 
 * tweepy (http://www.tweepy.org/)
 * textblob (https://textblob.readthedocs.io/en/dev/)
+* pandas (https://pandas.pydata.org/)
+* python-dotenv (https://pypi.org/project/python-dotenv/)
 
 Install missing dependencies using [pip](https://pip.pypa.io/en/stable/installing/)
 
@@ -17,7 +20,14 @@ Install missing dependencies using [pip](https://pip.pypa.io/en/stable/installin
 Once you have your dependencies installed via pip, run the script in terminal via
 
 ```
-python demo.py
+cd src
+python main.py
+```
+or
+
+```
+cd src
+make run
 ```
 
 ##Challenge
@@ -26,4 +36,4 @@ Instead of printing out each tweet, save each Tweet to a CSV file with an associ
 
 ##Credits
 
-This code is 100% Siraj baby.
+Update by: Armando Ibarra
