@@ -3,7 +3,9 @@
 # -*- encoding: UTF-8 -*
 
 
+import sys
 import logging
+import app
 
 
 # Configure the logger
@@ -14,8 +16,8 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 def main():
     # bootstrap
     logging.debug('bootstrapping ...')
+    app.run()
 
 
 if __name__ == '__main__':
-    main()
-    
+	sys.exit(main())
